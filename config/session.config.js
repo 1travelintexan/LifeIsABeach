@@ -17,7 +17,7 @@ module.exports = (app) => {
       //<===========this is where we save the session into the DB!!!! ===============>
       store: MongoStore.create({
         mongoUrl:
-          process.env.MONGODB_URI ||
+          "mongodb+srv://lifes-a-beach-main-db-0acbca320b8:vfyHENdyrsYPQyrWhR8Mcfspvf2few@prod-us-central1-2.ih9la.mongodb.net/lifes-a-beach-main-db-0acbca320b8" ||
           "mongodb://localhost/lab-express-basic-auth",
 
         //ttl => time to live
