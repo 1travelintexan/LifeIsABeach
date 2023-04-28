@@ -1,0 +1,38 @@
+<head>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <h1 class="welcome2 fade-in">Your Dream Vacation: {{name}}</h1>
+  <script
+    type="text/javascript"
+    src="https://www.gstatic.com/charts/loader.js"
+  ></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart); function drawChart() { let data
+    = google.visualization.arrayToDataTable([ [' Expenses', 'Total costs(in
+    percenteges)'], [' Hotel ',
+    {{hotel}}], [' Food',
+    {{food}}], [' Flight',
+    {{flight}}], [' Car ',
+    {{car}}] ]); let options = { pieSliceText: 'label', pieHole: 0.2, title:
+    'Your Holiday Expanses', pieStartAngle: 110, is3D: true } let chart = new
+    google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options); }
+  </script>
+</head>
+<body>
+  <div id="piechart" class="fade-in" style="width: 600px; height: 400px;"></div>
+  <h1 class="welcome2 fade-in">Estimated Total:<h1
+      class="green fade-in"
+    >${{total}}</h1></h1>
+  <form action="/piechart/{{id}}" method="POST" class="fade-in">
+    <button>Home</button>
+  </form>
+</body>
