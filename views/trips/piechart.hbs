@@ -1,4 +1,4 @@
-<head>
+{{!-- <head>
   <br />
   <br />
   <br />
@@ -8,20 +8,20 @@
   <br />
   <br />
 
-  <h1 class="welcome2 fade-in">Your Dream Vacation: {{name}}</h1>
   <script
     type="text/javascript"
     src="https://www.gstatic.com/charts/loader.js"
   ></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart); function drawChart() { let data
-    = google.visualization.arrayToDataTable([ [' Expenses', 'Total costs(in
+    google.charts.setOnLoadCallback(drawChart); function drawChart() { 
+      let data = google.visualization.arrayToDataTable([ [' Expenses', 'Total costs(in
     percenteges)'], [' Hotel ',
     {{hotel}}], [' Food',
     {{food}}], [' Flight',
     {{flight}}], [' Car ',
-    {{car}}] ]); let options = { pieSliceText: 'label', pieHole: 0.2, title:
+    {{car}}] ]); 
+    let options = { pieSliceText: 'label', pieHole: 0.2, title:
     'Your Holiday Expanses', pieStartAngle: 110, is3D: true } let chart = new
     google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options); }
@@ -35,4 +35,27 @@
   <form action="/piechart/{{id}}" method="POST" class="fade-in">
     <button>Home</button>
   </form>
-</body>
+</body> --}}
+<h1 class="welcome2 fade-in">Your Dream Vacation: {{name}}</h1>
+<div id="piechart">
+  <canvas id="myChart"></canvas>
+</div>
+
+<h1 class="welcome2 fade-in">Estimated Total:<h1
+    class="green fade-in"
+  >${{total}}</h1></h1>
+<form action="/piechart/{{id}}" method="POST" class="fade-in">
+  <button>Home</button>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const data = { labels: [ 'Hotel', 'Flight', 'Car', 'Food' ], datasets: [{
+  data: [{{hotel}},
+  {{flight}},
+  {{car}},
+  {{food}}], backgroundColor: [ 'rgb(155, 253, 253)', 'rgb(255, 168, 255)',
+  'rgb(255, 234, 96)', 'rgb(96, 255, 144)' ], hoverOffset: 4 }] }; const config
+  = { type: 'doughnut', data: data, options:{ cutout: '40%', responsive: true,
+  plugins: { legend: { position: 'top', }}}}; const ctx =
+  document.getElementById('myChart'); new Chart(ctx, config);
+</script>

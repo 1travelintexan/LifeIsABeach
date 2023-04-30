@@ -240,7 +240,7 @@ ul li {
 }
 
 #to-right span {
-  color: #43a3e6;
+  color: hwb(295 38% 0%);
   font-size: 1.5em;
 }
 
@@ -351,5 +351,10 @@ ul li {
   }
 }
 #piechart {
-  background: rgb(155, 253, 253);
+  background: rgba(132, 161, 255, 0.546);
+  padding: 2rem;
+  height: 50vh;
+}
+canvas {
+  height: 80vh;
 }
