@@ -1,6 +1,8 @@
 // require session
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/Kook-Club";
 module.exports = (app) => {
   app.set("trust proxy", 1);
   app.use(
@@ -16,9 +18,7 @@ module.exports = (app) => {
       },
       //<===========this is where we save the session into the DB!!!! ===============>
       store: MongoStore.create({
-        mongoUrl:
-          process.env.MONGODB_URI ||
-          "mongodb+srv://lifes-a-beach-main-db-0acbca320b8:vfyHENdyrsYPQyrWhR8Mcfspvf2few@prod-us-central1-2.ih9la.mongodb.net/lifes-a-beach-main-db-0acbca320b8",
+        mongoUrl: MONGO_URI,
         //ttl => time to live
         ttl: 60 * 60 * 24, // 60sec * 60min * 24h => 1 day
       }),
