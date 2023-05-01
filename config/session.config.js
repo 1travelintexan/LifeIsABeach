@@ -1,4 +1,5 @@
 // require session
+const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const MONGO_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/Kook-Club";
