@@ -19,20 +19,10 @@
     />
     <button type="submit" class="fade-in">Submit</button>
   </form>
-
-  <i class="fa fa-arrow-left googleIcon1 or fade-in" aria-hidden="true"><a
-      href="/"
-      class="googleIcon1 backT fade-in"
-    >Back</a></i>
-  <h4 class="fade-in">Or</h4>
+  <div id="back-btn">
+    <a href="/" class="googleIcon1 backT fade-in">Back</a>
+  </div>
   {{#if msg}}
-
     <p>{{msg}}</p>
-
   {{/if}}
-
-  <i
-    class="fa fa-google fa-3x googleIcon welcome3 fade-in"
-    aria-hidden="false"
-  ><a href="/auth/google" class="googleIcon1 fade-in">oogle</a></i>
 </section>
