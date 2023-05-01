@@ -19,6 +19,7 @@ module.exports = (app) => {
       //<===========this is where we save the session into the DB!!!! ===============>
       store: MongoStore.create({
         mongoUrl: MONGO_URI,
+        useUnifiedTopology: true,
         //ttl => time to live
         ttl: 60 * 60 * 24, // 60sec * 60min * 24h => 1 day
       }),
