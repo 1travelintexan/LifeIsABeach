@@ -2,7 +2,8 @@
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const MONGO_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/Kook-Club";
+  "mongodb+srv://lifesabeach-main-db-07de25de7bb:pv5Wj5C9PWxZcvJdtphtQ8fkXup717@prod-us-central1-2.ih9la.mongodb.net/lifesabeach-main-db-07de25de7bb" ||
+  "mongodb://localhost:27017/Kook-Club";
 
 module.exports = (app) => {
   app.set("trust proxy", 1);
