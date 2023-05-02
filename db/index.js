@@ -5,8 +5,6 @@ const MONGO_URI =
 mongoose
   .connect(MONGO_URI, {
     useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
   })
   .then((x) => {
     const databaseName = x.connections[0].name;
